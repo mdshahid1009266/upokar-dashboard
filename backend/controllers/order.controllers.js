@@ -68,7 +68,12 @@ export const getAllOrders = async (req, res) => {
                 }
             }
         ]);
-
+        res.cookie('token', token, {
+    httpOnly: true,
+    secure: req.secure,
+    sameSite: req.secure ? 'none' : 'lax',
+    path: '/'
+});
         res.status(200).json(orders);
     } catch (error) {
         res.status(500).json({ error: error.message });
