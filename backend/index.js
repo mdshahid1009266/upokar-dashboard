@@ -53,6 +53,8 @@ const corsOptions = {
   credentials: true,
 };
 
+app.set('trust proxy', 1)
+
 
 // const corsOptions = {
 //   origin: (origin, callback) => {
