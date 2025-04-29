@@ -71,12 +71,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set('trust proxy', 1);
 
-res.cookie('token', token, {
-    httpOnly: true,
-    secure: req.secure,
-    sameSite: req.secure ? 'none' : 'lax',
-    path: '/'
-});
 
 // Additional routes
 app.use(userRouter);
